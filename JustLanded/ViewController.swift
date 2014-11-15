@@ -8,11 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
 
+    var logInController = PFLogInViewController()
+
+    @IBAction func logoutButton(sender: UIButton) {
+        PFUser.logOut()
+        println("logout")
+        parseLogin()
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (PFUser.currentUser() != nil) {
+           println(PFUser.currentUser())
+        }
+        else{
+        println("else")
+        parseLogin()
+        }
+    }
+    
     override func viewDidLoad() {
-       
-        
+        super.viewDidLoad()
+//        var logInController = PFLogInViewController()
+//        logInController.delegate = self
+//        self.presentViewController(logInController, animated:true, completion: nil)
         
     }
 
@@ -27,6 +47,37 @@ class ViewController: UIViewController {
         let loginview:FBLoginView = FBLoginView()
         loginview.center = self.view.center
         self.view .addSubview(loginview)
+    }
+    
+    func parseLogin(){
+     //   var logInController = PFLogInViewController()
+      
+        
+        
+        self.logInController.delegate = self
+       self.logInController.fields = PFLogInFields.UsernameAndPassword
+            | PFLogInFields.LogInButton
+            | PFLogInFields.SignUpButton
+            | PFLogInFields.PasswordForgotten
+            | PFLogInFields.DismissButton
+            | PFLogInFields.Facebook
+            | PFLogInFields.Twitter
+
+        self.presentViewController(logInController, animated:true, completion: nil)
+        
+        
+        
+    }
+    
+    func logInViewController(controller: PFLogInViewController, didLogInUser user: PFUser) -> Void {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        println("logInViewController-LOGINSUCESS")
+        self.viewDidAppear(true)}
+    
+    func logInViewControllerDidCancelLogIn(controller: PFLogInViewController) -> Void {
+    //    self.dismisViewControllerAnimated(true, completion: nil)
+        println("logInViewController-LOGIN WITHOUT SUCESS")
+
     }
 }
 

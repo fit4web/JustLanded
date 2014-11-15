@@ -30,6 +30,8 @@
 		4FBD41A51A1782540005FF8E /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBD41A31A1782540005FF8E /* ParseFacebookUtils.framework */; };
 		4FBD41A61A1782540005FF8E /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBD41A41A1782540005FF8E /* ParseUI.framework */; };
 		4FBD41A81A178B430005FF8E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBD41A71A178B430005FF8E /* FacebookSDK.framework */; };
+		4FBD41AA1A17972A0005FF8E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBD41A91A17972A0005FF8E /* Accounts.framework */; };
+		4FBD41AC1A1797300005FF8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBD41AB1A1797300005FF8E /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		4FBD41A31A1782540005FF8E /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../../Downloads/parse-library-1/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
 		4FBD41A41A1782540005FF8E /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "../../../Downloads/parse-library-1/ParseUI.framework"; sourceTree = "<group>"; };
 		4FBD41A71A178B430005FF8E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		4FBD41A91A17972A0005FF8E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		4FBD41AB1A1797300005FF8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FBD41AC1A1797300005FF8E /* Social.framework in Frameworks */,
+				4FBD41AA1A17972A0005FF8E /* Accounts.framework in Frameworks */,
 				4FBD41A81A178B430005FF8E /* FacebookSDK.framework in Frameworks */,
 				4FBD41A51A1782540005FF8E /* ParseFacebookUtils.framework in Frameworks */,
 				4FBD41A61A1782540005FF8E /* ParseUI.framework in Frameworks */,
@@ -169,6 +175,8 @@
 		4FBD419B1A17806B0005FF8E /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				4FBD41AB1A1797300005FF8E /* Social.framework */,
+				4FBD41A91A17972A0005FF8E /* Accounts.framework */,
 				4FBD41A71A178B430005FF8E /* FacebookSDK.framework */,
 				4FBD41A31A1782540005FF8E /* ParseFacebookUtils.framework */,
 				4FBD41A41A1782540005FF8E /* ParseUI.framework */,

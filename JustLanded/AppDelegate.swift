@@ -20,7 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //ParseAuth
         Parse.setApplicationId("5cMbmrg3235HFMlJerxP28bZLb2Qq1CgUhr23HBM", clientKey: "MplQL7PnhWhioQ7iAxgTaiC3HQFbOszmyXdN7yr5")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-        
+        //TwitterAuth
+        PFTwitterUtils.initializeWithConsumerKey("cYqjvKagGkoiy5E2vbszX0THb",
+            consumerSecret:"nzVlSB9VdpITzAUcp4XBsuBNbb7zfD0DMIQOu84Tqt7lLc7pJr")
+        //FacebookAuth
+        PFFacebookUtils.initializeFacebook()
         
         return true
     }
@@ -41,7 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         //Logs "install" and "app activate" App Events
-       FBAppEvents.activateApp()
+      // FBAppEvents.activateApp()
+        FBAppCall.handleDidBecomeActiveWithSession(PFFacebookUtils.session())
+
+    
         
     }
 
@@ -115,8 +122,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // FB Integration
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
+//    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+//        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
+    
+//    }
+    
+    func application(application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String,
+        annotation: AnyObject?) -> Bool {
+            return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
+                withSession:PFFacebookUtils.session())
     }
 
 }
