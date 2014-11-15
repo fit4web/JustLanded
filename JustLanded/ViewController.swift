@@ -12,11 +12,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
 
     var logInController = PFLogInViewController()
 
-    @IBAction func logoutButton(sender: UIButton) {
-        PFUser.logOut()
-        println("logout")
-        parseLogin()
-    }
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if (PFUser.currentUser() != nil) {
@@ -51,10 +47,7 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     
     func parseLogin(){
      //   var logInController = PFLogInViewController()
-      
-        
-        
-        self.logInController.delegate = self
+      self.logInController.delegate = self
        self.logInController.fields = PFLogInFields.UsernameAndPassword
             | PFLogInFields.LogInButton
             | PFLogInFields.SignUpButton
@@ -72,12 +65,18 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     func logInViewController(controller: PFLogInViewController, didLogInUser user: PFUser) -> Void {
         self.dismissViewControllerAnimated(true, completion: nil)
         println("logInViewController-LOGINSUCESS")
-        self.viewDidAppear(true)}
+        //self.viewDidAppear(true)
+    }
     
     func logInViewControllerDidCancelLogIn(controller: PFLogInViewController) -> Void {
-    //    self.dismisViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(false, completion: nil)
         println("logInViewController-LOGIN WITHOUT SUCESS")
 
+    }
+    @IBAction func logoutButton(sender: UIButton) {
+        PFUser.logOut()
+        println("logout")
+        parseLogin()
     }
 }
 
