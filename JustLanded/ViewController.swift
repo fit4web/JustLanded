@@ -11,8 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +22,11 @@ class ViewController: UIViewController {
     }
 
 
+    
+    func fBLogin(){
+        let loginview:FBLoginView = FBLoginView()
+        loginview.center = self.view.center
+        self.view .addSubview(loginview)
+    }
 }
 
