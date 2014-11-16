@@ -10,16 +10,30 @@ import UIKit
 
 class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
 
-    var logInController = PFLogInViewController()
-
+//Labels
+    @IBOutlet weak var welcomeLabel: UILabel!
 
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewDidAppear(false)
         if (PFUser.currentUser() != nil) {
-           println(PFUser.currentUser())
+            var user:String = PFUser.currentUser().valueForKey("Group") as String
+                if user == "Admin"{
+                    self.performSegueWithIdentifier("UserStoryboard", sender: self )
+                }
+                else if user == "User"{
+                    self.performSegueWithIdentifier("AdminStoryboard", sender: self)
+                }
+                else {
+                    println("else happend")
+            }
+            
+            
+            //    self.welcomeLabel.text = "Hallo \(user)"
+           
+
+            
         }
         else{
-        println("else")
         parseLogin()
         }
     }
@@ -38,17 +52,10 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
     }
 
 
-    
-    func fBLogin(){
-        let loginview:FBLoginView = FBLoginView()
-        loginview.center = self.view.center
-        self.view .addSubview(loginview)
-    }
-    
     func parseLogin(){
-     //   var logInController = PFLogInViewController()
-      self.logInController.delegate = self
-       self.logInController.fields = PFLogInFields.UsernameAndPassword
+     var logInController = PFLogInViewController()
+       logInController.delegate = self
+       logInController.fields = PFLogInFields.UsernameAndPassword
             | PFLogInFields.LogInButton
             | PFLogInFields.SignUpButton
             | PFLogInFields.PasswordForgotten
@@ -56,22 +63,30 @@ class ViewController: UIViewController, PFLogInViewControllerDelegate, PFSignUpV
             | PFLogInFields.Facebook
             | PFLogInFields.Twitter
 
-        self.presentViewController(logInController, animated:true, completion: nil)
+        self.presentViewController(logInController, animated:false, completion: nil)
         
         
         
     }
-    
+    //Delegates
     func logInViewController(controller: PFLogInViewController, didLogInUser user: PFUser) -> Void {
-        self.dismissViewControllerAnimated(true, completion: nil)
+       self.dismissViewControllerAnimated(true, completion: nil)
         println("logInViewController-LOGINSUCESS")
-        //self.viewDidAppear(true)
+        self.navigationController?.popToViewController(ViewControllerUserMenu(), animated: false)
+        self.performSegueWithIdentifier("UserStoryboard", sender: self)
     }
     
     func logInViewControllerDidCancelLogIn(controller: PFLogInViewController) -> Void {
         self.dismissViewControllerAnimated(false, completion: nil)
         println("logInViewController-LOGIN WITHOUT SUCESS")
 
+    }
+    
+    //Actions
+    @IBAction func toRedController(sender: UIButton) {
+        
+        self.performSegueWithIdentifier("UserStoryboard", sender: self )
+        
     }
     @IBAction func logoutButton(sender: UIButton) {
         PFUser.logOut()
