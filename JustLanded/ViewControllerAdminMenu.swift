@@ -17,7 +17,17 @@ class ViewControllerAdminMenu: UIViewController, PFLogInViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.begruessungLabel.text = PFUser.currentUser().username
+        if PFUser.currentUser().valueForKey("firstName") == nil {
+            println("kein Vornamen in Datenbank")
+            self.begruessungLabel.text  = "Hallo \(PFUser.currentUser().username) "
+        }
+        else {
+            var username:String = PFUser.currentUser().valueForKey("firstName") as String
+            username += " "
+            username += PFUser.currentUser().valueForKey("lastName") as String
+            self.begruessungLabel.text  = "Hallo \(username) "
+        }
+
 
         // Do any additional setup after loading the view.
     }

@@ -34,6 +34,7 @@
 		4FBD41AC1A1797300005FF8E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBD41AB1A1797300005FF8E /* Social.framework */; };
 		4FBD41AE1A181B6E0005FF8E /* ViewControllerUserMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD41AD1A181B6E0005FF8E /* ViewControllerUserMenu.swift */; };
 		4FBD41B01A1820AA0005FF8E /* ViewControllerAdminMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD41AF1A1820AA0005FF8E /* ViewControllerAdminMenu.swift */; };
+		4FBD41B21A1836AE0005FF8E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD41B11A1836AE0005FF8E /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		4FBD41AB1A1797300005FF8E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		4FBD41AD1A181B6E0005FF8E /* ViewControllerUserMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerUserMenu.swift; sourceTree = "<group>"; };
 		4FBD41AF1A1820AA0005FF8E /* ViewControllerAdminMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAdminMenu.swift; sourceTree = "<group>"; };
+		4FBD41B11A1836AE0005FF8E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				4FBD41691A177CD00005FF8E /* ViewController.swift */,
 				4FBD41AD1A181B6E0005FF8E /* ViewControllerUserMenu.swift */,
 				4FBD41AF1A1820AA0005FF8E /* ViewControllerAdminMenu.swift */,
+				4FBD41B11A1836AE0005FF8E /* LoginViewController.swift */,
 				4FBD416B1A177CD00005FF8E /* Main.storyboard */,
 				4FBD416E1A177CD00005FF8E /* Images.xcassets */,
 				4FBD41701A177CD00005FF8E /* LaunchScreen.xib */,
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FBD41B21A1836AE0005FF8E /* LoginViewController.swift in Sources */,
 				4FBD416A1A177CD00005FF8E /* ViewController.swift in Sources */,
 				4FBD41651A177CD00005FF8E /* AppDelegate.swift in Sources */,
 				4FBD41A21A1781850005FF8E /* dummy.m in Sources */,
